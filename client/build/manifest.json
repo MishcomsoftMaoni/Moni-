@@ -1,0 +1,38 @@
+{
+  "short_name": "MAONI",
+  "name": "MAONI - Consultation Citoyenne RDC",
+  "description": "Plateforme nationale de consultation citoyenne pour les réformes constitutionnelles en République Démocratique du Congo",
+  "icons": [
+    {
+      "src": "/images/logo-drc-map.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo-drc-map.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/logo-drc-map.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0D47A1",
+  "background_color": "#FFFFFF",
+  "orientation": "any",
+  "lang": "fr-CD",
+  "categories": ["government", "news", "social"],
+  "screenshots": [
+    {
+      "src": "/images/logo-drc-map.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "prefer_related_applications": false
+}

@@ -1,0 +1,186 @@
+/* =============================================
+   MAONI 100.04 - RESPONSIVE BREAKPOINTS
+   Mobile-first approach
+   ============================================= */
+
+/* Extra small devices (phones, < 576px) */
+@media (max-width: 575.98px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
+  .hero-content {
+    padding: var(--space-xl) var(--space-md);
+  }
+  
+  .hero-stats {
+    gap: var(--space-md);
+  }
+  
+  .hero-stat {
+    min-width: 120px;
+    padding: var(--space-md);
+  }
+  
+  .hero-stat-number {
+    font-size: 1.75rem;
+  }
+  
+  .heritage-gallery {
+    height: 220px;
+    border-radius: var(--radius-lg);
+  }
+  
+  .heritage-caption {
+    padding: 0.5rem 1rem;
+    bottom: 0.75rem;
+  }
+  
+  .heritage-caption h3 {
+    font-size: 0.9rem;
+  }
+  
+  .heritage-caption p {
+    font-size: 0.75rem;
+  }
+  
+  .proposal-card-actions {
+    flex-direction: column;
+  }
+  
+  .vote-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .form-container {
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+  
+  .navbar-inner {
+    padding: 0 var(--space-md);
+  }
+  
+  .logo-navbar {
+    height: 35px;
+  }
+  
+  .navbar-brand-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .hero-stats {
+    gap: var(--space-lg);
+  }
+  
+  .heritage-gallery {
+    height: 300px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .proposal-card {
+    padding: var(--space-lg);
+  }
+  
+  .heritage-gallery {
+    height: 400px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* Standard desktop styles */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .hero {
+    min-height: 90vh;
+  }
+  
+  .heritage-gallery {
+    height: 600px;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* Ultra wide screens (1400px and up) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .heritage-gallery {
+    height: 700px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar, .footer, .hero-cta, .vote-button {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .proposal-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --gray-50: #0F172A;
+    --gray-100: #1E293B;
+    --gray-200: #334155;
+    --gray-300: #475569;
+    --gray-400: #64748B;
+    --gray-500: #94A3B8;
+    --gray-600: #CBD5E1;
+    --gray-700: #E2E8F0;
+    --gray-800: #F1F5F9;
+    --gray-900: #F8FAFC;
+    --white: #1E293B;
+    --black: #FFFFFF;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --drc-blue: #000080;
+    --drc-yellow: #FFFF00;
+    --drc-red: #FF0000;
+  }
+  
+  .proposal-card {
+    border: 3px solid currentColor;
+  }
+}
