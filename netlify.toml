@@ -1,0 +1,34 @@
+[build]
+  command = "cd client && npm install && npm run build"
+  publish = "client/build"
+
+[build.environment]
+  REACT_APP_SUPABASE_URL = "https://evnwpfgcsrroiewyzmnf.supabase.co"
+  REACT_APP_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2bndwZmdjc3Jyb2lld3l6bW5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MjM3OTAsImV4cCI6MjA5MzE5OTc5MH0.HtQXMh5sJPP4RaGghJWHH3XS1Z-mrk-JlNv8YeSMjQ8"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co https://api.africastalking.com https://rpc.ankr.com"
+
+[functions]
+  directory = "supabase/functions"
