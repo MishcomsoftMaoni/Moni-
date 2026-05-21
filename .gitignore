@@ -3,3 +3,5 @@ build/
 .cache/
 *.log
 .env
+.cache/
+*.pack

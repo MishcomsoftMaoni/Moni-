@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { supabase } from '../config/supabase';
 
 const AuthContext = createContext({});
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (formData) => {
     try {
       const { data: authData, error: authError } = await supabase.auth.signUp({
-        email: formData.email, password: formData.password,
+        email: formData.email, password: formData.password || formData.motDePasse || '',
         options: { data: { first_name: formData.prenom || formData.first_name, last_name: formData.nom || formData.last_name } }
       });
       if (authError) throw authError;
