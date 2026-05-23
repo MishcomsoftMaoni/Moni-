@@ -1,10 +1,69 @@
 /* =============================================
    MAONI 100.04 - RESPONSIVE BREAKPOINTS
-   Mobile-first approach
+   Version Militaire | Mobile-First | Accessibilité
+   République Démocratique du Congo
    ============================================= */
 
-/* Extra small devices (phones, < 576px) */
-@media (max-width: 575.98px) {
+/* --- Variables réactives --- */
+:root {
+  --responsive-padding-xs: 1rem;
+  --responsive-padding-sm: 1.5rem;
+  --responsive-padding-md: 2rem;
+  --responsive-padding-lg: 2.5rem;
+  --responsive-padding-xl: 3rem;
+}
+
+/* =============================================
+   EXTRA SMALL DEVICES (Phones, < 360px)
+   ============================================= */
+@media (max-width: 359.98px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .hero-title {
+    font-size: 1.4rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .hero-logo {
+    height: 60px;
+  }
+  
+  .hero-stat-number {
+    font-size: 1.3rem;
+  }
+  
+  .hero-stat {
+    min-width: 100px;
+    padding: 0.6rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  
+  .proposal-card-subject {
+    font-size: 0.9rem;
+  }
+  
+  .navbar-brand-text {
+    font-size: 0.9rem;
+  }
+  
+  .logo-navbar {
+    height: 28px;
+  }
+}
+
+/* =============================================
+   SMALL DEVICES (Phones, 360px - 575px)
+   ============================================= */
+@media (min-width: 360px) and (max-width: 575.98px) {
   .container {
     padding: 0 var(--space-md);
   }
@@ -14,16 +73,23 @@
   }
   
   .hero-stats {
-    gap: var(--space-md);
+    gap: var(--space-sm);
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   
   .hero-stat {
-    min-width: 120px;
+    min-width: 110px;
     padding: var(--space-md);
+    flex: 1;
   }
   
   .hero-stat-number {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+  }
+  
+  .hero-stat-label {
+    font-size: 0.7rem;
   }
   
   .heritage-gallery {
@@ -32,20 +98,39 @@
   }
   
   .heritage-caption {
-    padding: 0.5rem 1rem;
-    bottom: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    bottom: 0.5rem;
   }
   
   .heritage-caption h3 {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   
   .heritage-caption p {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
+  }
+  
+  .heritage-dots {
+    bottom: 0.5rem;
+    right: 0.75rem;
+  }
+  
+  .heritage-dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .proposal-card {
+    padding: var(--space-md);
+  }
+  
+  .proposal-card-header {
+    flex-wrap: wrap;
   }
   
   .proposal-card-actions {
     flex-direction: column;
+    gap: var(--space-sm);
   }
   
   .vote-button {
@@ -60,29 +145,105 @@
   
   .navbar-inner {
     padding: 0 var(--space-md);
+    height: 60px;
   }
   
   .logo-navbar {
-    height: 35px;
+    height: 32px;
   }
   
   .navbar-brand-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  
+  .footer-grid {
+    gap: var(--space-lg);
+  }
+  
+  .footer-column h4 {
+    font-size: 1rem;
+  }
+  
+  .scrolling-item {
+    padding: var(--space-md);
+    gap: var(--space-sm);
+  }
+  
+  .scrolling-item-avatar {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .scrolling-item-subject {
+    font-size: 0.85rem;
+  }
+  
+  .scrolling-item-excerpt {
+    font-size: 0.75rem;
+    -webkit-line-clamp: 3;
+  }
+  
+  .vote-bar {
+    min-width: 80px;
+  }
+  
+  .stats-cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .word-cloud-container {
+    min-height: 200px;
+  }
+  
+  .trending-keywords-item {
+    flex-wrap: wrap;
   }
 }
 
-/* Small devices (landscape phones, 576px and up) */
+/* =============================================
+   MEDIUM SMALL DEVICES (Landscape phones, 576px - 767px)
+   ============================================= */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .hero-stats {
-    gap: var(--space-lg);
+    gap: var(--space-md);
+  }
+  
+  .hero-stat {
+    min-width: 130px;
   }
   
   .heritage-gallery {
     height: 300px;
   }
+  
+  .form-container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .proposal-card-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .vote-button {
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* Medium devices (tablets, 768px and up) */
+/* =============================================
+   TABLETS (768px - 991px)
+   ============================================= */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .proposal-card {
     padding: var(--space-lg);
@@ -91,58 +252,150 @@
   .heritage-gallery {
     height: 400px;
   }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+  
+  .hero-stats {
+    gap: var(--space-lg);
+  }
+  
+  .hero-stat {
+    min-width: 140px;
+  }
+  
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .form-container {
+    max-width: 80%;
+  }
+  
+  .navbar-links {
+    gap: var(--space-md);
+  }
+  
+  .navbar-link {
+    padding: var(--space-sm) var(--space-sm);
+    font-size: 0.8rem;
+  }
 }
 
-/* Large devices (desktops, 992px and up) */
+/* =============================================
+   DESKTOPS (992px - 1199px)
+   ============================================= */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  /* Standard desktop styles */
+  .container {
+    max-width: 960px;
+  }
+  
+  .heritage-gallery {
+    height: 450px;
+  }
+  
+  .stats-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .proposal-card-content {
+    font-size: 0.95rem;
+  }
+  
+  .footer-grid {
+    gap: var(--space-xl);
+  }
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+/* =============================================
+   LARGE DESKTOPS (1200px - 1399px)
+   ============================================= */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+  
+  .hero {
+    min-height: 85vh;
+  }
+  
+  .heritage-gallery {
+    height: 500px;
+  }
+  
+  .stats-cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+  
+  .proposal-card {
+    padding: var(--space-xl);
+  }
+}
+
+/* =============================================
+   EXTRA LARGE DESKTOPS (1400px - 1599px)
+   ============================================= */
+@media (min-width: 1400px) and (max-width: 1599.98px) {
+  .container {
+    max-width: 1320px;
+  }
+  
   .hero {
     min-height: 90vh;
   }
   
   .heritage-gallery {
-    height: 600px;
+    height: 550px;
   }
   
-  .container {
-    max-width: 1200px;
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-stat-number {
+    font-size: 2.2rem;
   }
 }
 
-/* Ultra wide screens (1400px and up) */
-@media (min-width: 1400px) {
+/* =============================================
+   ULTRA WIDE SCREENS (1600px and up)
+   ============================================= */
+@media (min-width: 1600px) {
   .container {
-    max-width: 1400px;
+    max-width: 1500px;
+  }
+  
+  .hero {
+    min-height: 95vh;
   }
   
   .heritage-gallery {
-    height: 700px;
-  }
-}
-
-/* Print styles */
-@media print {
-  .navbar, .footer, .hero-cta, .vote-button {
-    display: none;
+    height: 650px;
   }
   
-  body {
-    background: white;
-    color: black;
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .hero-stat-number {
+    font-size: 2.5rem;
   }
   
   .proposal-card {
-    box-shadow: none;
-    border: 1px solid #ccc;
-    break-inside: avoid;
+    padding: var(--space-2xl);
   }
 }
 
-/* Dark mode support (optional) */
+/* =============================================
+   DARK MODE SUPPORT
+   ============================================= */
 @media (prefers-color-scheme: dark) {
   :root {
     --gray-50: #0F172A;
@@ -158,9 +411,41 @@
     --white: #1E293B;
     --black: #FFFFFF;
   }
+  
+  body {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  }
+  
+  .proposal-card,
+  .form-container,
+  .stats-card,
+  .trending-card {
+    background: #1E293B;
+    color: var(--gray-200);
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    background: #0F172A;
+    border-color: #334155;
+    color: var(--gray-200);
+  }
+  
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--drc-yellow);
+  }
+  
+  .navbar-links.open {
+    background: linear-gradient(135deg, #0A3D8F, #0D47A1);
+  }
 }
 
-/* Reduced motion */
+/* =============================================
+   REDUCED MOTION (Accessibilité)
+   ============================================= */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -170,17 +455,415 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  
+  .hero-logo,
+  .heritage-image,
+  .proposal-card {
+    animation: none !important;
+  }
+  
+  .heritage-slide {
+    transition: opacity 0.01ms !important;
+  }
 }
 
-/* High contrast mode */
+/* =============================================
+   HIGH CONTRAST MODE
+   ============================================= */
 @media (prefers-contrast: high) {
   :root {
     --drc-blue: #000080;
     --drc-yellow: #FFFF00;
     --drc-red: #FF0000;
+    --success: #008000;
+    --error: #FF0000;
+    --warning: #FF8C00;
   }
   
   .proposal-card {
     border: 3px solid currentColor;
+  }
+  
+  .btn-primary {
+    border: 2px solid var(--black);
+  }
+  
+  .hero-stat {
+    border: 1px solid var(--white);
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    border: 2px solid var(--black);
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  .vote-button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* =============================================
+   PRINT STYLES
+   ============================================= */
+@media print {
+  .navbar,
+  .footer,
+  .hero-cta,
+  .vote-button,
+  .btn,
+  .navbar-toggle,
+  .heritage-dots,
+  .scrolling-proposals,
+  .hero::before,
+  .hero::after {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .hero {
+    background: white;
+    color: black;
+    min-height: auto;
+    padding: 1rem;
+  }
+  
+  .hero-title {
+    color: black;
+    font-size: 18pt;
+  }
+  
+  .hero-subtitle {
+    color: #333;
+  }
+  
+  .proposal-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+  
+  .form-container {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  p, blockquote, ul, ol, dl, table {
+    page-break-inside: avoid;
+  }
+}
+
+/* =============================================
+   LANDSCAPE MODE (Mobile)
+   ============================================= */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero {
+    min-height: auto;
+    padding: var(--space-xl) 0;
+  }
+  
+  .hero-content {
+    padding: var(--space-lg) var(--space-md);
+  }
+  
+  .hero-logo {
+    height: 60px;
+  }
+  
+  .hero-stats {
+    gap: var(--space-sm);
+  }
+  
+  .hero-stat {
+    padding: var(--space-sm);
+    min-width: 90px;
+  }
+  
+  .hero-stat-number {
+    font-size: 1.2rem;
+  }
+  
+  .heritage-gallery {
+    height: 180px;
+  }
+  
+  .navbar {
+    position: relative;
+  }
+}
+
+/* =============================================
+   TOUCH DEVICES (Hover effects adjustment)
+   ============================================= */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover,
+  .proposal-card:hover,
+  .navbar-link:hover {
+    transform: none;
+  }
+  
+  .btn::before {
+    display: none;
+  }
+  
+  .heritage-image:hover {
+    transform: none;
+  }
+  
+  .vote-button:hover {
+    transform: none;
+  }
+  
+  /* Augmenter la taille des cibles tactiles */
+  .btn,
+  .navbar-link,
+  .vote-button,
+  .heritage-dot,
+  .footer-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* =============================================
+   FOLDABLE DEVICES (Fold, Flip, etc.)
+   ============================================= */
+@media (max-width: 280px) {
+  .hero-title {
+    font-size: 1.2rem;
+  }
+  
+  .hero-stat {
+    min-width: 80px;
+    padding: 0.4rem;
+  }
+  
+  .hero-stat-number {
+    font-size: 1rem;
+  }
+  
+  .hero-stat-label {
+    font-size: 0.6rem;
+  }
+  
+  .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+  
+  .navbar-brand-text {
+    font-size: 0.8rem;
+  }
+  
+  .logo-navbar {
+    height: 25px;
+  }
+}
+
+/* =============================================
+   NOTCH SUPPORT (iPhone 14 Pro, etc.)
+   ============================================= */
+@supports (padding: max(0px)) {
+  .navbar {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  .footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* =============================================
+   ANIMATIONS FOR RESPONSIVE
+   ============================================= */
+@media (min-width: 768px) {
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-on-scroll {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+}
+
+/* =============================================
+   UTILITY CLASSES FOR RESPONSIVE
+   ============================================= */
+.hide-on-mobile {
+  display: inherit;
+}
+
+.show-on-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .show-on-mobile {
+    display: block !important;
+  }
+}
+
+.hide-on-tablet {
+  display: inherit;
+}
+
+.show-on-tablet {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hide-on-tablet {
+    display: none !important;
+  }
+  
+  .show-on-tablet {
+    display: block !important;
+  }
+}
+
+.hide-on-desktop {
+  display: inherit;
+}
+
+.show-on-desktop {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+  
+  .show-on-desktop {
+    display: block !important;
+  }
+}
+
+/* =============================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================= */
+@media (max-width: 576px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 993px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* =============================================
+   RESPONSIVE GRID SYSTEM
+   ============================================= */
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+@media (min-width: 576px) {
+  .grid-sm-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-md-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-md-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .grid-lg-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .grid-lg-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid-xl-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .grid-xl-5 {
+    grid-template-columns: repeat(5, 1fr);
   }
 }

@@ -2,52 +2,488 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAONI - Mode Hors Ligne</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0D47A1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>MAONI 🇨🇩 - Mode Hors Ligne | Plateforme Présidentielle RDC</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: linear-gradient(135deg, #1a5fb4 0%, #1550a0 100%);
-            min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            color: white; text-align: center; padding: 2rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .offline-container { max-width: 480px; }
-        .offline-logo { width: 100px; margin-bottom: 1.5rem; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3)); animation: float 3s ease-in-out infinite; }
-        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-        .offline-icon { font-size: 4rem; margin-bottom: 0.5rem; }
-        h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.8rem; margin-bottom: 0.75rem; color: #FFD700; }
-        p { font-size: 1rem; line-height: 1.6; opacity: 0.9; margin-bottom: 1.5rem; }
-        .offline-actions { margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-        .btn { display: inline-block; padding: 0.75rem 1.75rem; background: #FFD700; color: #0D47A1; font-weight: 700; border: none; border-radius: 50px; cursor: pointer; font-size: 0.95rem; transition: all 0.3s ease; text-decoration: none; }
-        .btn:hover { background: #FFEB3B; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255,215,0,0.4); }
-        .btn-outline { background: transparent; border: 2px solid white; color: white; }
-        .btn-outline:hover { background: white; color: #0D47A1; }
-        .offline-features { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.75rem; margin: 1.5rem 0; }
-        .offline-feature { padding: 0.75rem; background: rgba(255,255,255,0.08); border-radius: 12px; backdrop-filter: blur(10px); }
-        .offline-feature-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
-        .offline-feature-text { font-size: 0.78rem; opacity: 0.8; }
-        .footer-note { margin-top: 1.5rem; font-size: 0.78rem; opacity: 0.6; }
-        @media (max-width:480px) { .offline-features { grid-template-columns: 1fr; } h1 { font-size: 1.4rem; } }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0A3D8F 0%, #0D47A1 50%, #0F172A 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Effet de fond militaire */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.02) 0px,
+                rgba(255,255,255,0.02) 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            pointer-events: none;
+        }
+
+        /* Sceau présidentiel en filigrane */
+        body::after {
+            content: '⚜️';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 5rem;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .offline-container {
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .offline-logo {
+            width: 100px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 10px 25px rgba(0,0,0,0.4));
+            animation: floatPresidential 3s ease-in-out infinite;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            padding: 0.5rem;
+        }
+
+        @keyframes floatPresidential {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .offline-icon {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3));
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(255,215,0,0.3); }
+            50% { text-shadow: 0 0 20px rgba(255,215,0,0.6); }
+        }
+
+        .connection-badge {
+            display: inline-block;
+            background: rgba(255,215,0,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,215,0,0.3);
+            color: #FFD700;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        h1 span {
+            color: white;
+            font-size: 1.6rem;
+        }
+
+        .offline-message {
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .offline-message p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        .offline-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .offline-feature {
+            padding: 0.75rem 0.5rem;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .offline-feature:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+            border-color: rgba(255,215,0,0.3);
+        }
+
+        .offline-feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .offline-feature-text {
+            font-size: 0.7rem;
+            font-weight: 500;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .offline-actions {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            background: linear-gradient(135deg, #FFD700, #F59E0B);
+            color: #0D47A1;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: inherit;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.4);
+            background: linear-gradient(135deg, #FFEB3B, #FBC02D);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #0D47A1;
+            border-color: white;
+            box-shadow: 0 10px 25px rgba(255,255,255,0.2);
+        }
+
+        .ussd-card {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+            border-radius: 16px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        .ussd-code {
+            font-family: 'Courier New', monospace;
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #FFD700;
+            background: rgba(0,0,0,0.3);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 10px;
+            margin: 0.5rem 0;
+        }
+
+        .footer-note {
+            margin-top: 1.5rem;
+            font-size: 0.7rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+            .offline-features {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            h1 span {
+                font-size: 1.3rem;
+            }
+            .offline-icon {
+                font-size: 3rem;
+            }
+            .offline-logo {
+                width: 80px;
+            }
+            .btn {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.85rem;
+            }
+            .ussd-code {
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .offline-features {
+                gap: 0.5rem;
+            }
+            .offline-feature-text {
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #0A3D8F 0%, #071C3A 100%);
+            }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .reconnecting::after {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,215,0,0.3);
+            border-top-color: #FFD700;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
-    <div class="offline-container">
-        <img src="/images/logo-drc-map.png" alt="MAONI" class="offline-logo">
-        <div class="offline-icon">📡</div>
-        <h1>Mode Hors Ligne</h1>
-        <p>Vous n'êtes pas connecté à Internet. MAONI fonctionne en mode limité. Vos actions seront synchronisées automatiquement dès votre reconnexion.</p>
-        <div class="offline-features">
-            <div class="offline-feature"><div class="offline-feature-icon">📖</div><div class="offline-feature-text">Consultez les propositions sauvegardées</div></div>
-            <div class="offline-feature"><div class="offline-feature-icon">✍️</div><div class="offline-feature-text">Rédigez des propositions</div></div>
-            <div class="offline-feature"><div class="offline-feature-icon">🔄</div><div class="offline-feature-text">Synchronisation automatique</div></div>
-        </div>
-        <div class="offline-actions">
-            <button class="btn" onclick="window.location.reload()">🔄 Réessayer</button>
-            <button class="btn btn-outline" onclick="window.history.back()">← Retour</button>
-        </div>
-        <p class="footer-note">🇨🇩 MAONI | Fabriqué en RDC<br>Composez <strong>*123#</strong> pour participer sans Internet</p>
+
+<div class="offline-container">
+    <img src="/images/logo-drc-map.png" alt="MAONI - République Démocratique du Congo" class="offline-logo">
+    
+    <div class="connection-badge">
+        📡 CONNEXION INTERROMPUE
     </div>
-    <script>window.addEventListener('online',()=>window.location.reload());</script>
+    
+    <div class="offline-icon">📡🔒</div>
+    
+    <h1>Mode <span>Hors Ligne</span></h1>
+    
+    <div class="offline-message">
+        <p>
+            ⚠️ Votre connexion Internet est momentanément indisponible.<br>
+            MAONI préserve vos données localement.<br>
+            <strong>Synchronisation automatique à la reconnexion.</strong>
+        </p>
+    </div>
+    
+    <div class="offline-features">
+        <div class="offline-feature">
+            <div class="offline-feature-icon">📖</div>
+            <div class="offline-feature-text">Consultation des propositions sauvegardées</div>
+        </div>
+        <div class="offline-feature">
+            <div class="offline-feature-icon">✍️</div>
+            <div class="offline-feature-text">Rédaction de propositions</div>
+        </div>
+        <div class="offline-feature">
+            <div class="offline-feature-icon">🔄</div>
+            <div class="offline-feature-text">Synchronisation automatique</div>
+        </div>
+        <div class="offline-feature">
+            <div class="offline-feature-icon">🗳️</div>
+            <div class="offline-feature-text">Votes en attente</div>
+        </div>
+        <div class="offline-feature">
+            <div class="offline-feature-icon">🔐</div>
+            <div class="offline-feature-text">Données chiffrées localement</div>
+        </div>
+        <div class="offline-feature">
+            <div class="offline-feature-icon">📱</div>
+            <div class="offline-feature-text">Mode hors ligne sécurisé</div>
+        </div>
+    </div>
+    
+    <div class="offline-actions">
+        <button class="btn" onclick="attemptReconnection()">
+            🔄 Vérifier la connexion
+        </button>
+        <button class="btn btn-outline" onclick="goBack()">
+            ← Page précédente
+        </button>
+    </div>
+    
+    <div class="ussd-card">
+        <div style="font-size: 0.7rem; letter-spacing: 1px; margin-bottom: 0.25rem;">
+            📞 CANAL DE COMMUNICATION PRIORITAIRE
+        </div>
+        <div class="ussd-code">
+            *123#
+        </div>
+        <div style="font-size: 0.7rem; opacity: 0.8;">
+            Composez ce code sur votre téléphone (même sans Internet)<br>
+            Votez • Proposez • Consultez les résultats
+        </div>
+    </div>
+    
+    <div class="footer-note">
+        <div>🇨🇩 MAONI - Plateforme Présidentielle de Consultation Citoyenne</div>
+        <div style="margin-top: 0.25rem;">
+            🔒 Sécurité maximale • 🇨🇩 Fabriqué en RDC
+        </div>
+        <div style="margin-top: 0.5rem; font-size: 0.65rem;">
+            Version 100.04 | Protection des données assurée
+        </div>
+    </div>
+</div>
+
+<script>
+    let isReconnecting = false;
+    
+    async function attemptReconnection() {
+        if (isReconnecting) return;
+        isReconnecting = true;
+        
+        document.body.classList.add('reconnecting');
+        
+        const button = document.querySelector('.btn');
+        const originalText = button.innerHTML;
+        button.innerHTML = '🔄 Reconnexion...';
+        button.disabled = true;
+        
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        if (navigator.onLine) {
+            setTimeout(() => window.location.reload(), 300);
+        } else {
+            document.body.classList.remove('reconnecting');
+            button.innerHTML = originalText;
+            button.disabled = false;
+            isReconnecting = false;
+            showMessage('📡 Toujours hors ligne. Vérifiez votre connexion.', '#FFD700');
+        }
+    }
+    
+    function goBack() {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '/';
+        }
+    }
+    
+    function showMessage(message, color) {
+        const msgDiv = document.createElement('div');
+        msgDiv.textContent = message;
+        msgDiv.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: ${color};
+            color: #0D47A1;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1000;
+            animation: fadeInUp 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        `;
+        document.body.appendChild(msgDiv);
+        setTimeout(() => msgDiv.remove(), 3000);
+    }
+    
+    window.addEventListener('online', () => {
+        showMessage('✅ Connexion rétablie ! Rechargement...', '#4CAF50');
+        setTimeout(() => window.location.reload(), 1000);
+    });
+    
+    window.addEventListener('offline', () => {
+        showMessage('📡 Connexion perdue. Mode hors ligne activé.', '#FF9800');
+    });
+    
+    if (navigator.onLine) {
+        setTimeout(() => window.location.reload(), 500);
+    }
+    
+    console.log('[MAONI] Mode hors ligne - Version 100.04');
+    console.log('[USSD] Canal alternatif disponible: *123#');
+</script>
 </body>
 </html>
